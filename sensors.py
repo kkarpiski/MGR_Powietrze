@@ -5,7 +5,7 @@ import csv
 import urllib, json
 #Sensory
 
-open('sensory.json', 'w').close()
+open('venv/sensory.json', 'w').close()
 
 stationId = str(0)
 lista = ['4769','4772']
@@ -24,7 +24,7 @@ for id in (lista):
     '{"type":"User"...'
     r.json()
 
-    with open('sensory.json', 'a', encoding='utf-8') as f:
+    with open('venv/sensory.json', 'a', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 
@@ -34,10 +34,10 @@ for id in (lista):
 
 #konwertowanie do csv
 
-    with open("sensory.json") as file:
+    with open("venv/sensory.json") as file:
         data = json.load(file)
 
-    with open("data.csv", "w") as file:
+    with open("venv/data.csv", "w") as file:
         csv_file = csv.writer(file)
         for item in data:
             fields = list(item['values'].values())
